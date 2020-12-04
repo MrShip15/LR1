@@ -1,3 +1,4 @@
+
 # Лабораторная работа № 1
 
 ## Задание
@@ -82,10 +83,10 @@
 // include/student.hpp
 
 struct Student {
-    std::string name;
-    std::any group;
-    std::any avg;
-    std::any debt;
+    std::string Name;
+    std::any Group;
+    double Avg;
+    std::any Debt;
 }
 ```
 
@@ -94,43 +95,11 @@ struct Student {
 
 using nlohmann::json;
 
-void from_json(const json& j, student_t& s) {
-
-    s.name = get_name(j.at("group"));
-    s.group = get_group(j.at("group"));
-    s.avg = get_avg(j.at("avg"));
-    s.debt = get_group(j.at("debt"));
-}
-
-auto get_name(const json& j) -> std::string {
-    return j.get<std::string>();
-}
-
-auto get_debt(const json& j) -> std::any {
-    if (j.is_null())
-        return nullptr;
-    else if (j.is_string())
-        return j.get<std::string>();
-    else
-        return j.get<std::vector<std::string> >();
-}
-
-auto get_avg(const json& j) -> std::any {
-    if (j.is_null())
-        return nullptr;
-    else if (j.is_string())
-        return j.get<std::string>();
-    else if (j.is_number_float())
-        return j.get<double>();
-    else
-        return j.get<std::size_t>();
-}
-
-auto get_group(const json& j) -> std::any {
-    if (j.is_string())
-        return = j.get<std::string>();
-    else
-        return j.get<std::size_t>();
+void from_json(const json& j, Student& s) {
+    j.at("name").get_to(s.Name);
+    j.at("group").get_to(s.Group);
+    j.at("avg").get_to(s.Avg);
+    j.at("debt").get_to(s.Debt);
 }
 ```
 
@@ -147,32 +116,10 @@ int main() {
     json data;
     file >> data;
 
-    std::vector<student_t> students;
-    for (auto const& item : data.at("items")) {
-        auto student = item.get<student_t>()
-        students.push_back(student);
+    std::vector<Student> students;
+    for (auto const& student : data.at("items")) {
+        students.push_back(Student{student});
     }
     //...
-    print(students, std::cout);
-}
-
-void print(const std::vector<student_t>& students, std::ostream& os) {
-
-    //...
-    for (auto const& student : students) {
-        print(student, os);
-    }
-}
-void print(const student_t& student, std::ostream& os) {
-    //...
-    if (student.debt.type() == typeid(std::nullptr_t)) {
-        os << "null";
-    } else if (student.debt.type() == typeid(std::string)) {
-        os << std::any_cast<std::string>(student.debt);
-    } else {
-        os
-          << std::any_cast<std::vector<std::string> >(student.debt).size()
-          << " items";
-    }
 }
 ```
