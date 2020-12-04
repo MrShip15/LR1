@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/MrShip15/LR1.svg?branch=main)](https://travis-ci.org/MrShip15/LR1)
 
 # Лабораторная работа № 1
 
