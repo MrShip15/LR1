@@ -28,8 +28,8 @@ Parser::Parser(const std::string& jsonPath) {
     students.push_back(Student(student));
   }
   for (auto const& student : students) {
-    if (student.getName().size() + 3 > column_width[0]) {
-      column_width[0] = student.getName().size() + 3;
+    if (student.get_name().size() + 3 > column_width[0]) {
+      column_width[0] = student.get_name().size() + 3;
     }
   }
 }
