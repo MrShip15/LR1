@@ -33,56 +33,56 @@ Parser::Parser(const std::string& jsonPath) {
     }
   }
 }
-void Parser::Print_columns(std::ostream& out) const {
+void Parser::print_columns(std::ostream& out) const {
   out << std::setfill(' ') << std::left << std::setw(column_width[0])
       << "| name" << std::setw(column_width[1]) << "| group"
       << std::setw(column_width[2]) << "| avg" << std::setw(column_width[3])
       << "| debt" << '|' << std::endl;
 }
-void Parser::Print_lines(std::ostream& out) const {
+void Parser::print_lines(std::ostream& out) const {
   for (size_t i = 0; i < 4; ++i) {
     out << std::setfill('-') << std::setw(column_width[i]) << "|";
   }
   out << '|' << std::endl;
 }
 std::ostream& operator<<(std::ostream& out, const Parser& pars) {
-  pars.Print_columns(out);
-  pars.Print_lines(out);
+  pars.print_columns(out);
+  pars.print_lines(out);
   for (size_t i = 0; i < pars.students.size(); ++i) {
     out << std::setfill(' ') << std::setw(pars.column_width[0])
-        << "| " + pars.students[i].getName();
-    if (pars.students[i].getGroup().type() == typeid(std::string)) {
+        << "| " + pars.students[i].get_name();
+    if (pars.students[i].get_group().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[1])
-          << "| " + std::any_cast<std::string>(pars.students[i].getGroup());
+          << "| " + std::any_cast<std::string>(pars.students[i].get_group());
     } else {
       out << "| " << std::setw(pars.column_width[1] - 2)
-          << std::any_cast<size_t>(pars.students[i].getGroup());
+          << std::any_cast<size_t>(pars.students[i].get_group());
     }
-    if (pars.students[i].getAvg().type() == typeid(std::nullptr_t)) {
+    if (pars.students[i].get_avg().type() == typeid(std::nullptr_t)) {
       out << "| " << std::setw(pars.column_width[2] - 2) << "null";
-    } else if (pars.students[i].getAvg().type() == typeid(std::string)) {
+    } else if (pars.students[i].get_avg().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[2])
-          << "| " + std::any_cast<std::string>(pars.students[i].getAvg());
-    } else if (pars.students[i].getAvg().type() == typeid(std::size_t)) {
+          << "| " + std::any_cast<std::string>(pars.students[i].get_avg());
+    } else if (pars.students[i].get_avg().type() == typeid(std::size_t)) {
       out << "| " << std::setw(pars.column_width[2] - 2)
-          << std::any_cast<size_t>(pars.students[i].getAvg());
+          << std::any_cast<size_t>(pars.students[i].get_avg());
     } else {
       out << "| " << std::setw(pars.column_width[2] - 2)
-          << std::any_cast<double>(pars.students[i].getAvg());
+          << std::any_cast<double>(pars.students[i].get_avg());
     }
-    if (pars.students[i].getDebt().type() == typeid(std::nullptr_t)) {
+    if (pars.students[i].get_debt().type() == typeid(std::nullptr_t)) {
       out << "| " << std::setw(pars.column_width[3] - 2) << "null";
-    } else if (pars.students[i].getDebt().type() == typeid(std::string)) {
+    } else if (pars.students[i].get_debt().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[3])
-          << "| " + std::any_cast<std::string>(pars.students[i].getDebt());
+          << "| " + std::any_cast<std::string>(pars.students[i].get_debt());
     } else {
       out << "| "
-          << std::any_cast<std::vector<std::string>>(pars.students[i].getDebt())
+          << std::any_cast<std::vector<std::string>>(pars.students[i].get_debt())
                  .size()
           << std::setw(pars.column_width[3] - 3) << " items";
     }
     out << '|' << std::endl;
-    pars.Print_lines(out);
+    pars.print_lines(out);
   }
   return out;
 }

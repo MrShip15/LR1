@@ -15,10 +15,14 @@ using nlohmann::json;
 class Student {
  public:
   explicit Student(const json& js);
-  const std::string& getName() const;
-  const std::any& getGroup() const;
-  const std::any& getAvg() const;
-  const std::any& getDebt() const;
+  const std::string& get_name() const;
+  const std::any& get_group() const;
+  const std::any& get_avg() const;
+  const std::any& get_debt() const;
+  void print_name(std::ostream& out) const;
+  void print_group(std::ostream& out) const;
+  void print_avg(std::ostream& out) const;
+  void print_debt(std::ostream& out) const;
 
  private:
   std::string Name;

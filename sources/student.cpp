@@ -40,7 +40,7 @@ Student::Student(const json& js) {
     throw std::invalid_argument("debt is not correct");
   }
 }
-const std::string& Student::getName() const { return Name; }
-const std::any& Student::getGroup() const { return Group; }
-const std::any& Student::getAvg() const { return Avg; }
-const std::any& Student::getDebt() const { return Debt; }
+const std::string& Student::get_name() const { return Name; }
+const std::any& Student::get_group() const { return Group; }
+const std::any& Student::get_avg() const { return Avg; }
+const std::any& Student::get_debt() const { return Debt; }
