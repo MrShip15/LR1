@@ -1,0 +1,54 @@
+Start testing: Jan 08 15:21 UTC
+----------------------------------------------------------
+1/1 Testing: unit_tests
+1/1 Test: unit_tests
+Command: "/home/ivan/MrShip15/lr/lab-01-parser/_builds/tests"
+Directory: /home/ivan/MrShip15/lr/lab-01-parser/_builds
+"unit_tests" start time: Jan 08 15:21 UTC
+Output:
+----------------------------------------------------------
+Running main() from gtest_main.cc
+[0;32m[==========] [mRunning 12 tests from 2 test cases.
+[0;32m[----------] [mGlobal test environment set-up.
+[0;32m[----------] [m7 tests from Parser
+[0;32m[ RUN      ] [mParser.Empty_path
+[0;32m[       OK ] [mParser.Empty_path (0 ms)
+[0;32m[ RUN      ] [mParser.Opening_file
+[0;32m[       OK ] [mParser.Opening_file (0 ms)
+[0;32m[ RUN      ] [mParser.Empty_json
+[0;32m[       OK ] [mParser.Empty_json (0 ms)
+[0;32m[ RUN      ] [mParser.Empty_file
+[0;32m[       OK ] [mParser.Empty_file (1 ms)
+[0;32m[ RUN      ] [mParser.Correct_array
+[0;32m[       OK ] [mParser.Correct_array (0 ms)
+[0;32m[ RUN      ] [mParser.Count_items
+[0;32m[       OK ] [mParser.Count_items (0 ms)
+[0;32m[ RUN      ] [mParser.correct_output
+[0;32m[       OK ] [mParser.correct_output (1 ms)
+[0;32m[----------] [m7 tests from Parser (2 ms total)
+
+[0;32m[----------] [m5 tests from Student
+[0;32m[ RUN      ] [mStudent.Empty_student
+[0;32m[       OK ] [mStudent.Empty_student (0 ms)
+[0;32m[ RUN      ] [mStudent.correct_out_name
+[0;32m[       OK ] [mStudent.correct_out_name (0 ms)
+[0;32m[ RUN      ] [mStudent.correct_out_group
+[0;32m[       OK ] [mStudent.correct_out_group (0 ms)
+[0;32m[ RUN      ] [mStudent.correct_out_avg
+[0;32m[       OK ] [mStudent.correct_out_avg (1 ms)
+[0;32m[ RUN      ] [mStudent.correct_out_debt
+[0;32m[       OK ] [mStudent.correct_out_debt (0 ms)
+[0;32m[----------] [m5 tests from Student (1 ms total)
+
+[0;32m[----------] [mGlobal test environment tear-down
+[0;32m[==========] [m12 tests from 2 test cases ran. (4 ms total)
+[0;32m[  PASSED  ] [m12 tests.
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"unit_tests" end time: Jan 08 15:21 UTC
+"unit_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jan 08 15:21 UTC

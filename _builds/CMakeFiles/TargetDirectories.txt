@@ -1,0 +1,5 @@
+/home/ivan/MrShip15/lr/lab-01-parser/_builds/CMakeFiles/edit_cache.dir
+/home/ivan/MrShip15/lr/lab-01-parser/_builds/CMakeFiles/test.dir
+/home/ivan/MrShip15/lr/lab-01-parser/_builds/CMakeFiles/tests.dir
+/home/ivan/MrShip15/lr/lab-01-parser/_builds/CMakeFiles/rebuild_cache.dir
+/home/ivan/MrShip15/lr/lab-01-parser/_builds/CMakeFiles/template.dir
