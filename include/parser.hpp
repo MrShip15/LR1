@@ -11,8 +11,8 @@ using nlohmann::json;
 class Parser {
  public:
   explicit Parser(const std::string& jsonPath);
-  void print_columns(std::ostream& out) const;
-  void print_lines(std::ostream& out) const;
+  void Print_columns(std::ostream& out) const;
+  void Print_lines(std::ostream& out) const;
   friend std::ostream& operator<<(std::ostream& out, const Parser& pars);
 
  private:

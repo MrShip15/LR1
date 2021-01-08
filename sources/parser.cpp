@@ -28,65 +28,61 @@ Parser::Parser(const std::string& jsonPath) {
     students.push_back(Student(student));
   }
   for (auto const& student : students) {
-    if (student.get_name().size() + 3 > column_width[0]) {
-      column_width[0] = student.get_name().size() + 3;
+    if (student.getName().size() + 3 > column_width[0]) {
+      column_width[0] = student.getName().size() + 3;
     }
   }
 }
-void Parser::print_columns(std::ostream& out) const {
+void Parser::Print_columns(std::ostream& out) const {
   out << std::setfill(' ') << std::left << std::setw(column_width[0])
       << "| name" << std::setw(column_width[1]) << "| group"
       << std::setw(column_width[2]) << "| avg" << std::setw(column_width[3])
       << "| debt" << '|' << std::endl;
 }
-void Parser::print_lines(std::ostream& out) const {
+void Parser::Print_lines(std::ostream& out) const {
   for (size_t i = 0; i < 4; ++i) {
     out << std::setfill('-') << std::setw(column_width[i]) << "|";
   }
   out << '|' << std::endl;
 }
 std::ostream& operator<<(std::ostream& out, const Parser& pars) {
-  pars.print_columns(out);
-  pars.print_lines(out);
+  pars.Print_columns(out);
+  pars.Print_lines(out);
   for (size_t i = 0; i < pars.students.size(); ++i) {
-      pars.students[i].print_name(out, pars.column_width[0]);
-      pars.students[i].print_group(out, pars.column_width[1]);
-      pars.students[i].print_avg(out, pars.column_width[2]);
-      pars.students[i].print_debt(out, pars.column_width[3]);
-    /*out << std::setfill(' ') << std::setw(pars.column_width[0])
-        << "| " + pars.students[i].get_name();
-    if (pars.students[i].get_group().type() == typeid(std::string)) {
+    out << std::setfill(' ') << std::setw(pars.column_width[0])
+        << "| " + pars.students[i].getName();
+    if (pars.students[i].getGroup().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[1])
-          << "| " + std::any_cast<std::string>(pars.students[i].get_group());
+          << "| " + std::any_cast<std::string>(pars.students[i].getGroup());
     } else {
       out << "| " << std::setw(pars.column_width[1] - 2)
-          << std::any_cast<size_t>(pars.students[i].get_group());
+          << std::any_cast<size_t>(pars.students[i].getGroup());
     }
-    if (pars.students[i].get_avg().type() == typeid(std::nullptr_t)) {
+    if (pars.students[i].getAvg().type() == typeid(std::nullptr_t)) {
       out << "| " << std::setw(pars.column_width[2] - 2) << "null";
-    } else if (pars.students[i].get_avg().type() == typeid(std::string)) {
+    } else if (pars.students[i].getAvg().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[2])
-          << "| " + std::any_cast<std::string>(pars.students[i].get_avg());
-    } else if (pars.students[i].get_avg().type() == typeid(std::size_t)) {
+          << "| " + std::any_cast<std::string>(pars.students[i].getAvg());
+    } else if (pars.students[i].getAvg().type() == typeid(std::size_t)) {
       out << "| " << std::setw(pars.column_width[2] - 2)
-          << std::any_cast<size_t>(pars.students[i].get_avg());
+          << std::any_cast<size_t>(pars.students[i].getAvg());
     } else {
       out << "| " << std::setw(pars.column_width[2] - 2)
-          << std::any_cast<double>(pars.students[i].get_avg());
+          << std::any_cast<double>(pars.students[i].getAvg());
     }
-    if (pars.students[i].get_debt().type() == typeid(std::nullptr_t)) {
+    if (pars.students[i].getDebt().type() == typeid(std::nullptr_t)) {
       out << "| " << std::setw(pars.column_width[3] - 2) << "null";
-    } else if (pars.students[i].get_debt().type() == typeid(std::string)) {
+    } else if (pars.students[i].getDebt().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[3])
-          << "| " + std::any_cast<std::string>(pars.students[i].get_debt());
+          << "| " + std::any_cast<std::string>(pars.students[i].getDebt());
     } else {
       out << "| "
-          << std::any_cast<std::vector<std::string>>(pars.students[i].get_debt())
+          << std::any_cast<std::vector<std::string>>(pars.students[i].getDebt())
                  .size()
           << std::setw(pars.column_width[3] - 3) << " items";
-    }*/
+    }
     out << '|' << std::endl;
-    pars.print_lines(out);
+    pars.Print_lines(out);
   }
   return out;
 }
