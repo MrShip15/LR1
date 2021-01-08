@@ -65,7 +65,7 @@ TEST(Parser, correct_output) {
 |---------------|--------|------|--------------|
 | Sidorov Ivan  | 31     | 4    | C++          |
 |---------------|--------|------|--------------|
-| Pertov Nikita | IU8-31 | 3.33 | 3 items      |
+| Pertov Nikita | IU8-31 | 3.33 | 3 items       |
 |---------------|--------|------|--------------|
 )");
   ASSERT_EQ(str.str(), str_example);

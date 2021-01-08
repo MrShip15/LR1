@@ -19,10 +19,10 @@ class Student {
   const std::any& get_group() const;
   const std::any& get_avg() const;
   const std::any& get_debt() const;
-  void print_name(std::ostream& out) const;
-  void print_group(std::ostream& out) const;
-  void print_avg(std::ostream& out) const;
-  void print_debt(std::ostream& out) const;
+  void print_name(std::ostream& out, size_t column_width) const;
+  void print_group(std::ostream& out, size_t column_width) const;
+  void print_avg(std::ostream& out, size_t column_width) const;
+  void print_debt(std::ostream& out, size_t column_width) const;
 
  private:
   std::string Name;

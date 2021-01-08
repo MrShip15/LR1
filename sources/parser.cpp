@@ -49,7 +49,11 @@ std::ostream& operator<<(std::ostream& out, const Parser& pars) {
   pars.print_columns(out);
   pars.print_lines(out);
   for (size_t i = 0; i < pars.students.size(); ++i) {
-    out << std::setfill(' ') << std::setw(pars.column_width[0])
+      pars.students[i].print_name(out, pars.column_width[0]);
+      pars.students[i].print_group(out, pars.column_width[1]);
+      pars.students[i].print_avg(out, pars.column_width[2]);
+      pars.students[i].print_debt(out, pars.column_width[3]);
+    /*out << std::setfill(' ') << std::setw(pars.column_width[0])
         << "| " + pars.students[i].get_name();
     if (pars.students[i].get_group().type() == typeid(std::string)) {
       out << std::setw(pars.column_width[1])
@@ -80,7 +84,7 @@ std::ostream& operator<<(std::ostream& out, const Parser& pars) {
           << std::any_cast<std::vector<std::string>>(pars.students[i].get_debt())
                  .size()
           << std::setw(pars.column_width[3] - 3) << " items";
-    }
+    }*/
     out << '|' << std::endl;
     pars.print_lines(out);
   }
