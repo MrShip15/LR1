@@ -1,3 +1,6 @@
+_builds/*
+.idea/*
+
 # Prerequisites
 *.d
 
